@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Scotty11:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Scotty-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Scotty11:war exploded" />
+    </root>
+  </artifact>
+</component>
