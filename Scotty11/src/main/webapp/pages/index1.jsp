@@ -29,6 +29,8 @@ function submit_fun(userID)
                 type: "POST",
                 url: "/search_user",
                 data: {"user_id": userID},
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
                     console.log("AJAX POST DATA .... " + data);
                 }

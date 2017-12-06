@@ -1,13 +1,14 @@
 package spring.test.soumen.controllers.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 
 @Entity
 @Table(name = "emp")
-public class Users
+public class Users implements Serializable
 {
     @Id
-    @GeneratedValue
     @Column(name = "user_id")
     private Integer id;
     @Column(name = "user_name")
@@ -18,35 +19,12 @@ public class Users
     private Integer userBanned;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Integer getUserBanned() {
-        return userBanned;
-    }
-
-    public void setUserBanned(Integer userBanned) {
-        this.userBanned = userBanned;
-    }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+    public Integer getUserBanned() { return userBanned; }
+    public void setUserBanned(Integer userBanned) { this.userBanned = userBanned; }
 }
