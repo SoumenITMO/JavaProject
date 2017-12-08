@@ -23,28 +23,24 @@ public class UserResource
     LoginInterface loginint;
 
     @RequestMapping("/")
-    public ModelAndView index(HttpServletRequest res_index)
+    public ModelAndView index(HttpServletRequest res_index) throws Exception
     {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("pt", "My Online Shoping...");
         mv.addObject("cart_item", "5 items In your CART .. ");
         Cookie[] cookies = res_index.getCookies();
-        for(Cookie ck : cookies)
-        {
-            if(ck.getName().toString().equals("user_login_cookie") && !ck.getValue().toString().equals(""))
-            {
-                mv.addObject("userName", ck.getValue());
-                mv.addObject("loginbtntxt", "Logout");
-                mv.addObject("loginbtnclass", "btn-logout");
-                mv.addObject("modalbtn","#");
-            }
-
-            else
-            {
-                mv.addObject("loginbtntxt", "Login");
-                mv.addObject("userName", "User!");
-                mv.addObject("loginbtnclass", "");
-                mv.addObject("modalbtn","#login");
+        if(cookies.length > 0) {
+            for (Cookie ck : cookies) {
+                if (ck.getName().toString().equals("user_login_cookie") && !ck.getValue().toString().equals("")) {
+                    mv.addObject("userName", ck.getValue());
+                    mv.addObject("loginbtntxt", "Logout");
+                    mv.addObject("loginbtnclass", "btn-logout");
+                    mv.addObject("modalbtn", "#");
+                } else {
+                    mv.addObject("loginbtntxt", "Login");
+                    mv.addObject("userName", "User!");
+                    mv.addObject("loginbtnclass", "");
+                    mv.addObject("modalbtn", "#login");
+                }
             }
         }
         mv.setViewName("pages/index.jsp");
